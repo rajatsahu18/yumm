@@ -5,10 +5,15 @@ import './index.css'
 import { BrowserRouter as Router} from "react-router-dom"
 
 import App from "./App"
+import { StateProvider } from './Context/StateProvider'
+import reducer from './Context/reducer'
+import { initialState } from './Context/initialState';
 
 ReactDOM.render (
     <Router>
-      <App/>
+      <StateProvider initialState={initialState} reducer={reducer} >
+        <App/>
+      </StateProvider>
     </Router> , 
     document.getElementById("root")
 );
