@@ -1,9 +1,9 @@
 import React from "react";
 import Delivery from "../img/delivery.png";
 import HeroBg from "../img/heroBg.png";
-import { heroData } from "./../utils/data";
+import { heroData } from "../utils/data";
 
-const HomeContainer = () => {
+export const HomeContainer = () => {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
       <div className="py-2 flex-1 flex flex-col items-start justify-center gap-6">
@@ -11,7 +11,7 @@ const HomeContainer = () => {
           <p className="text-base text-orange-500 font-semibold">
             Bike Delivery
           </p>
-          <div className="w-6 h-6 bg-white rounded-full overflow-hidden">
+          <div className="w-8 h-8 bg-white rounded-full overflow-hidden drop-shadow-xl">
             <img
               src={Delivery}
               alt="bike"
@@ -22,7 +22,7 @@ const HomeContainer = () => {
 
         <p className="text-[2.5rem] lg:text-[4.5rem] font-bold tracking-wide text-headingColor">
           The Fastest Delivery in
-          <span className="text-orange-600 text-[3rem] md:text-[5rem]">
+          <span className="text-orange-600 text-[3rem] lg:text-[5rem]">
             Your City
           </span>
         </p>
@@ -36,38 +36,38 @@ const HomeContainer = () => {
 
         <button
           type="button"
-          className="bg-gradient-to-br from-orange-400 to-orange-500 w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg ease-in-out duration-100"
+          className="bg-gradient-to-br from-orange-400 to-orange-500 w-full md:w-auto px-4 py-2 rounded-lg hover:shadow-lg transition-all ease-in-out duration-100"
         >
           Order Now
         </button>
       </div>
-      <div className="py-2 flex-1 items-center relative">
+      <div className="py-2 flex-1 flex items-center relative">
         <img
           src={HeroBg}
           alt="hero"
           className="ml-auto h-420 w-full lg:w-auto lg:h-650"
         />
 
-        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center px-32 py-4 flex-wrap gap-4">
+        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center lg:px-32 px-32 py-4 gap-4 flex-wrap">
           {heroData &&
-            heroData.map((item) => (
+            heroData.map((n) => (
               <div
-                key={item.id}
-                className="lg:w-190 p-4 bg-cardOverlay backdrop-blur-md rounded-3xl felx flex-col items-center justify-center drop-shadow-lg"
+                key={n.id}
+                className="lg:w-190 p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg"
               >
                 <img
-                  src={item.imageSrc}
+                  src={n.imageSrc}
                   alt="icecream"
                   className="w-20 lg:w-40 -mt-10 lg:-mt-20"
                 />
                 <p className="text-base lg:text-xl font-semibold text-textColor mt-2 lg:mt-4">
-                  {item.name}
+                  {n.name}
                 </p>
                 <p className="text-[12px] lg:text-sm text-lightTextGray font-semibold my-1 lg:my-3">
-                  {item.desc}
+                  {n.desc}
                 </p>
                 <p className="text-sm font-semibold text-headingColor">
-                  <span className="text-xs text-red-600">$</span> {item.price}
+                  <span className="text-xs text-red-600">₹</span> {n.price}
                 </p>
               </div>
             ))}
@@ -76,5 +76,3 @@ const HomeContainer = () => {
     </section>
   );
 };
-
-export default HomeContainer;
